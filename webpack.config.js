@@ -1,8 +1,11 @@
 'use strict'; // eslint-disable-line
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
@@ -35,6 +38,7 @@ const config = {
     noInfo: false,
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
@@ -51,6 +55,18 @@ const config = {
       isLocalBuild: buildingForLocal,
       imgPath: !buildingForLocal ? 'assets' : 'src/assets',
     }),
+    new SitemapPlugin('https://eikefoken.com', ['/'], {
+      skipGzip: true,
+    }),
+    new RobotstxtPlugin({
+      policy: [
+        {
+          userAgent: '*',
+          disallow: '',
+        },
+      ],
+      sitemap: 'https://eikefoken.com/sitemap.xml',
+    }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: buildingForLocal ? '[name].css' : '[name].[hash].css',
@@ -58,7 +74,7 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        isStaging: (NODE_ENV === 'development' || NODE_ENV === 'staging'),
+        isStaging: NODE_ENV === 'development' || NODE_ENV === 'staging',
         NODE_ENV: `"${NODE_ENV}"`,
       },
     }),
