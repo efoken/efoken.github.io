@@ -1,6 +1,7 @@
 'use strict'; // eslint-disable-line
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
@@ -144,6 +145,9 @@ if (!buildingForLocal) {
     new PrerenderSpaPlugin({
       staticDir: __dirname,
       routes: ['/'],
+    }),
+    new CnameWebpackPlugin({
+      domain: 'eikefoken.com',
     }),
   ]);
 }
