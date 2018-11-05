@@ -20,10 +20,8 @@ module.exports = {
       js: 'never',
       vue: 'never',
     }],
-    'import/no-extraneous-dependencies': ['error', {
-      optionalDependencies: ['test/unit/index.js'],
-    }],
-    'max-len': 0,
+    'max-len': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-param-reassign': ['error', {
       props: true,
