@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'devicon';
-	src:url(fonts/devicon.478292ee89c6ed097c8d79908ae5b1dd.eot);
-	src:url(fonts/devicon.478292ee89c6ed097c8d79908ae5b1dd.eot?#iefix-hdf3wh) format('embedded-opentype'),
-		url(fonts/devicon.fd2d16f23d2fb36bf259b93ae75e0d42.woff) format('woff'),
-		url(fonts/devicon.b6ba8105eea98fe99e74c8b8c844f266.ttf) format('truetype'),
-		url(fonts/devicon.279702e05976a44fbbafe245f4085c31.svg#devicon) format('svg');
+	src:url(fonts/devicon.681fa39a79c22f0035a0720e2b2bda3b.eot);
+	src:url(fonts/devicon.681fa39a79c22f0035a0720e2b2bda3b.eot?#iefix-hdf3wh) format('embedded-opentype'),
+		url(fonts/devicon.0f964a72f8fbdf9c8d4e0122b8effb40.woff) format('woff'),
+		url(fonts/devicon.29f80b00a7b4641183f96f08be374697.ttf) format('truetype'),
+		url(fonts/devicon.74e6e6c3dcfca56767adabe83a510f2e.svg#devicon) format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -21,6 +21,355 @@
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.devicon-sketch-line-wordmark:before {
+  content: "\E94C";
+}
+
+.devicon-sketch-line:before {
+  content: "\E94D";
+}
+
+.devicon-npm-original-wordmark:before {
+  content: "\E952";
+}
+
+.devicon-ionic-original-wordmark:before {
+  content: "\E953";
+}
+
+.devicon-ionic-original:before {
+  content: "\E954";
+}
+
+.devicon-ember-original-wordmark:before {
+  content: "\E955";
+}
+
+.devicon-electron-original-wordmark:before {
+  content: "\E956";
+}
+
+.devicon-electron-original:before {
+  content: "\E957";
+}
+
+.devicon-vagrant-plain-wordmark:before {
+  content: "\E94E";
+}
+
+.devicon-vagrant-plain:before {
+  content: "\E94F";
+}
+
+.devicon-yarn-plain-wordmark:before {
+  content: "\E950";
+}
+
+.devicon-yarn-plain:before {
+  content: "\E951";
+}
+
+.devicon-handlebars-plain-wordmark:before {
+  content: "\E94A";
+}
+
+.devicon-handlebars-plain:before {
+  content: "\E94B";
+}
+
+.devicon-couchdb-plain-wordmark:before {
+  content: "\E948";
+}
+
+.devicon-couchdb-plain:before {
+  content: "\E949";
+}
+
+.devicon-behance-plain-wordmark:before {
+  content: "\E943";
+}
+
+.devicon-behance-plain:before {
+  content: "\E945";
+}
+
+.devicon-linkedin-plain-wordmark:before {
+  content: "\E946";
+}
+
+.devicon-linkedin-plain:before {
+  content: "\E947";
+}
+
+.devicon-ceylon-plain-wordmark:before {
+  content: "\E943";
+}
+
+.devicon-ceylon-plain:before {
+  content: "\E944";
+}
+
+.devicon-elm-plain-wordmark:before {
+  content: "\E941";
+}
+
+.devicon-elm-plain:before {
+  content: "\E942";
+}
+
+.devicon-cakephp-plain-wordmark:before {
+  content: "\E93F";
+}
+
+.devicon-cakephp-plain:before {
+  content: "\E940";
+}
+
+.devicon-stylus-original:before {
+  content: "\E93E";
+}
+
+.devicon-express-original-wordmark:before {
+  content: "\E93C";
+}
+
+.devicon-express-original:before {
+  content: "\E93D";
+}
+
+.devicon-devicon-plain-wordmark:before {
+  content: "\E93A";
+}
+
+.devicon-devicon-plain:before {
+  content: "\E93B";
+}
+
+.devicon-intellij-plain-wordmark:before {
+  content: "\E932";
+}
+
+.devicon-intellij-plain:before {
+  content: "\E933";
+}
+
+.devicon-pycharm-plain-wordmark:before {
+  content: "\E934";
+}
+
+.devicon-pycharm-plain:before {
+  content: "\E935";
+}
+
+.devicon-rubymine-plain-wordmark:before {
+  content: "\E936";
+}
+
+.devicon-rubymine-plain:before {
+  content: "\E937";
+}
+
+.devicon-webstorm-plain-wordmark:before {
+  content: "\E938";
+}
+
+.devicon-webstorm-plain:before {
+  content: "\E939";
+}
+
+.devicon-tomcat-line-wordmark:before {
+  content: "\E92C";
+}
+
+.devicon-tomcat-line:before {
+  content: "\E92D";
+}
+
+.devicon-vuejs-line-wordmark:before {
+  content: "\E92E";
+}
+
+.devicon-vuejs-line:before {
+  content: "\E92F";
+}
+
+.devicon-vuejs-plain-wordmark:before {
+  content: "\E930";
+}
+
+.devicon-vuejs-plain:before {
+  content: "\E931";
+}
+
+.devicon-swift-plain-wordmark:before {
+  content: "\E92A";
+}
+
+.devicon-swift-plain:before {
+  content: "\E92B";
+}
+
+.devicon-webpack-plain-wordmark:before {
+  content: "\E928";
+}
+
+.devicon-webpack-plain:before {
+  content: "\E929";
+}
+
+.devicon-visualstudio-plain-wordmark:before {
+  content: "\E926";
+}
+
+.devicon-visualstudio-plain:before {
+  content: "\E927";
+}
+
+.devicon-slack-plain-wordmark:before {
+  content: "\E924";
+}
+
+.devicon-slack-plain:before {
+  content: "\E925";
+}
+
+.devicon-facebook-original:before,
+.devicon-facebook-plain:before {
+	content: "\E91C";
+}
+
+.devicon-typescript-original:before,
+.devicon-typescript-plain:before {
+  content: "\E920";
+}
+
+.devicon-babel-original:before,
+.devicon-babel-plain:before {
+  content: "\E921";
+}
+
+.devicon-mocha-plain:before {
+  content: "\E919";
+}
+
+.devicon-jasmine-plain-wordmark:before {
+  content: "\E91B";
+}
+
+.devicon-jasmine-plain:before {
+  content: "\E91A";
+}
+
+.devicon-gatling-plain-wordmark:before {
+	content: "\E918";
+}
+
+.devicon-gatling-plain:before {
+	content: "\E917";
+}
+
+.devicon-ssh-original-wordmark:before,
+.devicon-ssh-plain-wordmark:before {
+	content: "\E916";
+}
+
+.devicon-ssh-original:before,
+.devicon-ssh-plain:before {
+	content: "\E915";
+}
+
+.devicon-sourcetree-original-wordmark:before,
+.devicon-sourcetree-plain-wordmark:before {
+	content: "\E914";
+}
+
+.devicon-sourcetree-original:before,
+.devicon-sourcetree-plain:before {
+	content: "\E913";
+}
+
+.devicon-phpstorm-plain-wordmark:before {
+	content: "\E912";
+}
+
+.devicon-phpstorm-plain:before {
+	content: "\E911";
+}
+
+.devicon-protractor-plain-wordmark:before {
+	content: "\E901";
+}
+
+.devicon-protractor-plain:before {
+	content: "\E900";
+}
+
+.devicon-gradle-plain-wordmark:before {
+	content: "\E8F1";
+}
+
+.devicon-gradle-plain:before {
+	content: "\E902";
+}
+
+.devicon-cucumber-plain-wordmark:before {
+	content: "\E905";
+}
+
+.devicon-cucumber-plain:before {
+	content: "\E904";
+}
+
+.devicon-jeet-plain-wordmark:before {
+	content: "\E906";
+}
+
+.devicon-jeet-plain:before {
+	content: "\E903";
+}
+
+.devicon-gitlab-plain-wordmark:before {
+	content: "\E908";
+}
+
+.devicon-gitlab-plain:before {
+	content: "\E907";
+}
+
+.devicon-github-original-wordmark:before,
+.devicon-github-plain-wordmark:before {
+	content: "\E90A";
+}
+
+.devicon-github-original:before,
+.devicon-github-plain:before {
+	content: "\E909";
+}
+
+.devicon-d3js-plain:before {
+	content: "\E90C";
+}
+
+.devicon-confluence-original-wordmark:before,
+.devicon-confluence-plain-wordmark:before {
+	content: "\E90E";
+}
+
+.devicon-confluence-original:before,
+.devicon-confluence-plain:before {
+	content: "\E90D";
+}
+
+.devicon-bitbucket-original-wordmark:before,
+.devicon-bitbucket-plain-wordmark:before {
+	content: "\E910";
+}
+
+.devicon-bitbucket-original:before,
+.devicon-bitbucket-plain:before {
+	content: "\E90F";
 }
 
 .devicon-safari-line-wordmark:before {
@@ -374,6 +723,16 @@
 	content: "\E7A8";
 }
 
+.devicon-google-original-wordmark:before,
+.devicon-google-plain-wordmark:before {
+	content: "\E91D";
+}
+
+.devicon-google-original:before,
+.devicon-google-plain:before {
+	content: "\E91E";
+}
+
 .devicon-grunt-line-wordmark:before {
 	content: "\E7A9";
 }
@@ -563,6 +922,16 @@
 	content: "\EBCB";
 }
 
+.devicon-sequelize-original-wordmark:before,
+.devicon-sequelize-plain-wordmark:before {
+	content: "\E922";
+}
+
+.devicon-sequelize-original:before,
+.devicon-sequelize-plain:before {
+	content: "\E923";
+}
+
 .devicon-symfony-original-wordmark:before,
 .devicon-symfony-plain-wordmark:before {
 	content: "\E602";
@@ -587,6 +956,11 @@
 
 .devicon-trello-plain:before {
 	content: "\EBCF";
+}
+
+.devicon-twitter-original:before,
+.devicon-twitter-plain:before {
+	content: "\E91F";
 }
 
 .devicon-ubuntu-plain-wordmark:before {
