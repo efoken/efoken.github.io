@@ -11,6 +11,7 @@ const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const { NODE_ENV } = process.env;
 
@@ -69,6 +70,19 @@ const config = {
       environment: process.env.NODE_ENV,
       isLocalBuild: buildingForLocal,
       imgPath: !buildingForLocal ? 'assets' : 'src/assets',
+    }),
+    new WebpackPwaManifest({
+      filename: 'manifest.json',
+      name: 'Eike Foken',
+      ios: true,
+      background_color: '#fff',
+      theme_color: '#4e4e5b',
+      icons: [
+        {
+          src: path.resolve('src/assets/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512, 1024],
+        },
+      ],
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
