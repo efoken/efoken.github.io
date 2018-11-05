@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OfflinePlugin = require('offline-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
@@ -46,6 +47,7 @@ const config = {
     modules: ['node_modules'],
   },
   mode: buildingForLocal ? 'development' : 'production',
+  devtool: buildingForLocal ? 'cheap-source-map' : false,
   devServer: {
     historyApiFallback: true,
     noInfo: false,
@@ -89,6 +91,7 @@ const config = {
       filename: `${outputFilename}.css`,
       chunkFilename: `${outputFilename}.css`,
     }),
+    new OfflinePlugin(),
   ],
   module: {
     rules: [
