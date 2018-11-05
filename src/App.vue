@@ -259,6 +259,12 @@
             </li>
             <li class="list-inline-item">
               <i
+                class="devicon-babel-plain"
+                aria-label="Babel"
+              />
+            </li>
+            <li class="list-inline-item">
+              <i
                 class="devicon-bootstrap-plain"
                 aria-label="Bootstrap"
               />
@@ -279,6 +285,12 @@
               <i
                 class="devicon-docker-plain"
                 aria-label="Docker"
+              />
+            </li>
+            <li class="list-inline-item">
+              <i
+                class="devicon-express-original"
+                aria-label="Express"
               />
             </li>
             <li class="list-inline-item">
@@ -357,6 +369,18 @@
               <i
                 class="devicon-sass-original"
                 aria-label="Sass"
+              />
+            </li>
+            <li class="list-inline-item">
+              <i
+                class="devicon-vuejs-plain"
+                aria-label="Vue.js"
+              />
+            </li>
+            <li class="list-inline-item">
+              <i
+                class="devicon-webpack-plain"
+                aria-label="webpack"
               />
             </li>
             <li class="list-inline-item">

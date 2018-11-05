@@ -1,4 +1,4 @@
-import 'devicon/devicon.css';
+import 'devicon-2.2/devicon.css';
 import 'ionicons/dist/css/ionicons.css';
 import BootstrapVue from 'bootstrap-vue';
 import smoothscroll from 'smoothscroll-polyfill';
