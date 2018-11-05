@@ -4,11 +4,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require('path');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const webpack = require('webpack');
 
 const { NODE_ENV } = process.env;
 
@@ -23,6 +25,14 @@ const config = {
     splitChunks: {
       chunks: 'all',
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+      new OptimizeCssAssetsPlugin(),
+    ],
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -56,28 +66,10 @@ const config = {
       isLocalBuild: buildingForLocal,
       imgPath: !buildingForLocal ? 'assets' : 'src/assets',
     }),
-    new SitemapPlugin('https://eikefoken.com', ['/'], {
-      skipGzip: true,
-    }),
-    new RobotstxtPlugin({
-      policy: [
-        {
-          userAgent: '*',
-          disallow: '',
-        },
-      ],
-      sitemap: 'https://eikefoken.com/sitemap.xml',
-    }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: buildingForLocal ? '[name].css' : '[name].[hash].css',
       chunkFilename: buildingForLocal ? '[name].css' : '[name].[hash].css',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        isStaging: NODE_ENV === 'development' || NODE_ENV === 'staging',
-        NODE_ENV: `"${NODE_ENV}"`,
-      },
     }),
   ],
   module: {
@@ -94,9 +86,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-        }],
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -143,11 +133,20 @@ const config = {
 if (!buildingForLocal) {
   config.plugins = config.plugins.concat([
     new PrerenderSpaPlugin({
-      staticDir: __dirname,
+      staticDir: path.join(__dirname, 'dist'),
       routes: ['/'],
     }),
     new CnameWebpackPlugin({
       domain: 'eikefoken.com',
+    }),
+    new RobotstxtPlugin({
+      policy: [
+        { userAgent: '*', disallow: '' },
+      ],
+      sitemap: 'https://eikefoken.com/sitemap.xml',
+    }),
+    new SitemapPlugin('https://eikefoken.com', ['/'], {
+      skipGzip: true,
     }),
   ]);
 }
