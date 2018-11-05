@@ -15,10 +15,11 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { NODE_ENV } = process.env;
 
 const buildingForLocal = NODE_ENV === 'development';
+const outputFilename = buildingForLocal ? '[name]' : '[name].[hash]';
 
 const config = {
   output: {
-    filename: buildingForLocal ? '[name].js' : '[name].[hash].js',
+    filename: `${outputFilename}.js`,
   },
   optimization: {
     runtimeChunk: false,
@@ -47,6 +48,7 @@ const config = {
   devServer: {
     historyApiFallback: true,
     noInfo: false,
+    open: true,
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -68,8 +70,8 @@ const config = {
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: buildingForLocal ? '[name].css' : '[name].[hash].css',
-      chunkFilename: buildingForLocal ? '[name].css' : '[name].[hash].css',
+      filename: `${outputFilename}.css`,
+      chunkFilename: `${outputFilename}.css`,
     }),
   ],
   module: {
@@ -111,18 +113,18 @@ const config = {
         ],
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         loader: 'file-loader',
         query: {
-          name: 'img/[name].[hash].[ext]',
+          name: `img/${outputFilename}.[ext]`,
           useRelativePath: buildingForLocal,
         },
       },
       {
-        test: /\.(ttf|woff2?|eot|svg)$/,
+        test: /\.(ttf|eot|woff2?|svg)$/,
         loader: 'file-loader',
         query: {
-          name: 'fonts/[name].[hash].[ext]',
+          name: `fonts/${outputFilename}.[ext]`,
           useRelativePath: buildingForLocal,
         },
       },
