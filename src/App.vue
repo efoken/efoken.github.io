@@ -16,6 +16,7 @@
           <img
             class="img-fluid img-profile rounded-circle mx-auto mb-2"
             src="./assets/profile.jpg"
+            srcset="./assets/profile@2x.jpg 2x, ./assets/profile@3x.jpg 3x"
             alt="Eike Foken"
           >
         </span>
