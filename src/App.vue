@@ -63,6 +63,15 @@
               Skills
             </a>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#interests"
+              @click="scrollToAnchor"
+            >
+              Interests
+            </a>
+          </li>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -79,7 +88,7 @@
             <span class="text-primary">Foken</span>
           </h1>
           <div class="subheading mb-5">
-            Vahrenwalder Str. 115 · Hanover, DE 20165 · (1578) 5916655 ·
+            Vahrenwalder Str. 115 · Hanover, DE 20165 · +49 1578 5916655 ·
             <a href="mailto:kontakt@eikefoken.de">kontakt@eikefoken.de</a>
           </div>
           <p class="lead mb-5">
@@ -411,6 +420,26 @@
               Agile Development, Scrum &amp; Kanban
             </li>
           </ul>
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+      <section
+        id="interests"
+        class="resume-section p-3 p-lg-5 d-flex flex-column"
+      >
+        <div class="my-auto">
+          <h2 class="mb-5">Interests</h2>
+          <p>
+            In my free time, I like to go to concerts, explore new places on this planet, relax in
+            nature and read news about outer space or cats.
+          </p>
+          <p>
+            But I also enjoy being at home. So, a large amount of my free time I spend with
+            exploring the latest technology advancements in the front-end web development world in
+            the company of my girlfriend, who is an artist, and our two cats.
+          </p>
         </div>
       </section>
 
