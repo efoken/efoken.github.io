@@ -82,7 +82,7 @@
             <a href="mailto:kontakt@eikefoken.de">kontakt@eikefoken.de</a>
           </div>
           <p class="lead mb-5">
-            I am Eike Foken, a Web and Frontend Developer with 8 years of experience with modern web
+            I am Eike Foken, a Web and Frontend Developer with 7 years of experience with modern web
             technologies and frameworks. I am 31 years old, currently living in Hanover together
             with my girlfriend and our two cats. I was born on 26th of March 1987 in Aurich, a small
             town in East Frisia near the north sea.
@@ -196,7 +196,7 @@
               </p>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">October 2010 - July 2013</span>
+              <span class="text-primary">October 2011 - July 2013</span>
             </div>
           </div>
 
