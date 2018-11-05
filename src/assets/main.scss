@@ -1,8 +1,9 @@
+$white: #fff;
 $gray-700: #444;
 $plum: #4e4e5b;
 $primary: $plum;
 
-$body-color: #888;
+$body-color: #757575;
 
 $link-hover-color: $gray-700;
 
@@ -15,6 +16,8 @@ $headings-color: $gray-700;
 $h1-font-size: 6rem;
 $h2-font-size: 3.5rem;
 $h3-font-size: 2rem;
+
+$navbar-dark-color: rgba($white, 0.65);
 
 @import '~bootstrap/scss/bootstrap';
 
@@ -106,7 +109,7 @@ h1 {
       padding: 0.5rem;
 
       .img-profile {
-        border: 0.5rem solid rgba(255, 255, 255, 0.2);
+        border: 0.5rem solid rgba($white, 0.2);
         max-height: 10rem;
         max-width: 10rem;
       }
