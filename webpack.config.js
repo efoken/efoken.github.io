@@ -56,10 +56,12 @@ const config = {
       filename: 'index.html',
       inject: true,
       template: 'index.html',
+      templateParameters: {
+        buildingForLocal,
+      },
       minify: {
         removeAttributeQuotes: true,
         collapseWhitespace: true,
-        html5: true,
         minifyCSS: true,
         removeComments: true,
         removeEmptyAttributes: true,
