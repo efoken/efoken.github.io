@@ -48,6 +48,9 @@ const config = {
       }),
       new PurifyCssPlugin({
         paths: glob.sync(path.join(__dirname, 'src/**.{js,vue}')),
+        purifyOptions: {
+          whitelist: ['*navbar*', 'bg-primary', 'fixed-top'],
+        },
       }),
     ],
   },
