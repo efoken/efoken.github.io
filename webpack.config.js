@@ -2,12 +2,14 @@
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
+const PurifyCssPlugin = require('purifycss-webpack');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -33,8 +35,20 @@ const config = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          output: { comments: false },
+        },
       }),
-      new OptimizeCssAssetsPlugin(),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: ['default', {
+            discardComments: { removeAll: true },
+          }],
+        },
+      }),
+      new PurifyCssPlugin({
+        paths: glob.sync(path.join(__dirname, 'src/**.{js,vue}')),
+      }),
     ],
   },
   resolve: {
@@ -81,7 +95,7 @@ const config = {
       theme_color: '#4e4e5b',
       icons: [
         {
-          src: path.resolve('src/assets/icon.png'),
+          src: path.join(__dirname, 'src/assets/icon.png'),
           sizes: [96, 128, 192, 256, 384, 512, 1024],
         },
       ],
@@ -91,7 +105,6 @@ const config = {
       filename: `${outputFilename}.css`,
       chunkFilename: `${outputFilename}.css`,
     }),
-    new OfflinePlugin(),
   ],
   module: {
     rules: [
@@ -169,6 +182,7 @@ if (!buildingForLocal) {
     new SitemapPlugin('https://eikefoken.com', ['/'], {
       skipGzip: true,
     }),
+    new OfflinePlugin(),
   ]);
 }
 
