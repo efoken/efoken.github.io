@@ -42,7 +42,7 @@
             <span class="text-primary">Foken</span>
           </h1>
           <div class="subheading mb-5">
-            Vahrenwalder Str. 115 · Hanover, DE 20165 · +49 1578 5916655 ·
+            Ebertystr. 10 · Berlin, DE 10249 · +49 1578 5916655 ·
             <a
               :style="{ unicodeBidi: 'bidi-override', direction: 'rtl' }"
               href="#"
@@ -52,8 +52,8 @@
           <p class="lead mb-5">
             I am Eike Foken, a Web and Frontend Developer with 7 years of experience with modern web
             technologies and frameworks. I am 31 years old, currently living in Hanover together
-            with my girlfriend and our two cats. I was born on 26th of March 1987 in Aurich, a small
-            town in East Frisia near the north sea.
+            with my wife and our two cats. I was born on 26th of March 1987 in Aurich, a small town
+            in East Frisia near the north sea.
           </p>
           <div class="social-icons">
             <a
@@ -180,7 +180,7 @@
           <p>
             But I also enjoy being at home. So, a large amount of my free time I spend with
             exploring the latest technology advancements in the front-end web development world in
-            the company of my girlfriend, who is an artist, and our two cats.
+            the company of my wife, who is an artist, and our two cats.
           </p>
         </div>
       </section>
