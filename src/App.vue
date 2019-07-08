@@ -48,7 +48,7 @@
               :style="{ unicodeBidi: 'bidi-override', direction: 'rtl' }"
               href="#"
               @click="contactMe"
-            >ed.nekofekie@tkatnok</a>
+            >moc.liamg@nekofekie</a>
           </div>
           <p class="lead mb-5">
             I am Eike Foken, a Web and Frontend Developer with nearly
@@ -296,7 +296,7 @@ export default {
   methods: {
     contactMe(ev) {
       ev.preventDefault();
-      window.location.href = atob('bWFpbHRvOmtvbnRha3RAZWlrZWZva2VuLmRl');
+      window.location.href = atob('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=');
     },
     scrollToAnchor(ev) {
       const href = ev.currentTarget.getAttribute('href');
