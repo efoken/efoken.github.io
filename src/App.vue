@@ -42,7 +42,8 @@
             <span class="text-primary">Foken</span>
           </h1>
           <div class="subheading mb-5">
-            Ebertystr. 10 · Berlin, DE 10249 · +49 1578 5916655 ·
+            Ebertystr. 10 · Berlin, DE 10249 ·
+            <a href="tel:+4915785916655">+49 1578 5916655</a> ·
             <a
               :style="{ unicodeBidi: 'bidi-override', direction: 'rtl' }"
               href="#"
@@ -50,10 +51,11 @@
             >ed.nekofekie@tkatnok</a>
           </div>
           <p class="lead mb-5">
-            I am Eike Foken, a Web and Frontend Developer with 7 years of experience with modern web
-            technologies and frameworks. I am 31 years old, currently living in Hanover together
-            with my wife and our two cats. I was born on 26th of March 1987 in Aurich, a small town
-            in East Frisia near the north sea.
+            I am Eike Foken, a Web and Frontend Developer with nearly
+            {{ experiences.slice(-1)[0].startDate.fromNow(true) }} of experience with modern web
+            technologies and frameworks. I am {{ about.birthDate.fromNow(true) }} old, currently
+            living in Hanover together with my wife and our two cats. I was born on 26th of March
+            1987 in Aurich, a small town in East Frisia near the north sea.
           </p>
           <div class="social-icons">
             <a
@@ -102,7 +104,13 @@
               <p>{{ experience.description }}</p>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">{{ experience.startDate }} - {{ experience.endDate }}</span>
+              <span class="text-primary">
+                {{ experience.startDate.format('MMMM YYYY') }} -
+                <template
+                  v-if="experience.endDate.isSame(new Date(), 'month')"
+                >Present</template>
+                <template v-else>{{ experience.endDate.format('MMMM YYYY') }}</template>
+              </span>
             </div>
           </div>
         </div>
@@ -127,7 +135,9 @@
               <p>GPA: {{ education.gpa }}</p>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">{{ education.startDate }} - {{ education.endDate }}</span>
+              <span
+                class="text-primary"
+              >{{ education.startDate.format('MMMM YYYY') }} - {{ education.endDate.format('MMMM YYYY') }}</span>
             </div>
           </div>
         </div>
@@ -189,41 +199,54 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   data() {
     return {
+      about: {
+        birthDate: moment('1987-03-26'),
+      },
       experiences: [
         {
-          title: 'Senior Web Developer',
+          title: 'Software Developer',
+          company: 'Model Engineering Solutions GmbH, Berlin',
+          description:
+            'A company specialized in quality assurance of software projects, well-known in the automobile industry. I am developing the Quality Commander, a huge project to visualize Big Data collected from other inhouse software. Used technologies are C# in backend and Typescript, React as well as D3 in frontends.',
+          startDate: moment('2019-03'),
+          endDate: moment(),
+        },
+        {
+          title: 'Senior Full-Stack Developer',
           company: 'Cybay New Media GmbH, Hanover',
           description:
-            'In the agency I am dealing with the creation of websites, further development of existing websites, as well as the care of existing customers. In addition to PHP, Laravel and WordPress, the technologies used include JavaScript, React for the development of Progressive Web Apps and React Native for mobile app development.',
-          startDate: 'January 2018',
-          endDate: 'Present',
+            'In the agency I dealt with the creation of websites, further development of existing websites, as well as the care of existing customers. In addition to PHP, Laravel and WordPress, the technologies used include JavaScript, React for the development of Progressive Web Apps and React Native for mobile app development.',
+          startDate: moment('2018-01'),
+          endDate: moment('2019-02'),
         },
         {
           title: 'Software Developer',
           company: 'ABIAN GmbH, Hanover',
           description:
             'Originally hired as a developer for web-based software (e.g. for the Deutsche Messe AG and CEBIT), over time I took over more and more tasks and was responsible for the implementation of responsive websites and mobile apps, from conception to development towards implementation with PHP, JavaScript and CSS with well known frameworks like Laravel, Angular, React and Bootstrap.',
-          startDate: 'January 2014',
-          endDate: 'December 2017',
+          startDate: moment('2014-01'),
+          endDate: moment('2017-12'),
         },
         {
           title: 'Junior Web Developer',
           company: 'eMedienservice Nord, Oldenburg',
           description:
             'An agency, a subsidiary of the Nordwest-Zeitung, from which I was taken over after working at QP media GmbH. In addition to the independent development of responsive websites and WordPress theming, my activities also included the programming of www.nwzonline.de with Java.',
-          startDate: 'August 2013',
-          endDate: 'December 2013',
+          startDate: moment('2013-08'),
+          endDate: moment('2013-12'),
         },
         {
           title: 'Junior Web Developer',
           company: 'QP media GmbH, Oldenburg',
           description:
             'A small startup, sponsored by Nordwest-Zeitung, which dealt with couponing and printing vouchers. From the first day on I accompanied the startup, developed a well-known, regional coupon platform. Programming languages used included Python (with Django) and JavaScript.',
-          startDate: 'October 2011',
-          endDate: 'July 2013',
+          startDate: moment('2011-10'),
+          endDate: moment('2013-07'),
         },
       ],
       educations: [
@@ -232,8 +255,8 @@ export default {
           graduation: 'Bachelor of Science',
           subject: 'Computer Science - Web Development Track',
           gpa: 2.31,
-          startDate: 'September 2008',
-          endDate: 'March 2012',
+          startDate: moment('2008-09'),
+          endDate: moment('2012-03'),
         },
       ],
       skills: {
@@ -243,11 +266,13 @@ export default {
           { title: 'Atom', icon: 'devicon-atom-original' },
           { title: 'Babel', icon: 'devicon-babel-plain' },
           { title: 'Bootstrap', icon: 'devicon-bootstrap-plain' },
+          { title: 'Chrome', icon: 'devicon-chrome-plain' },
           { title: 'CSS3', icon: 'devicon-css3-plain' },
           { title: 'Django', icon: 'devicon-django-plain' },
           { title: 'Docker', icon: 'devicon-docker-plain' },
           { title: 'Express', icon: 'devicon-express-original' },
           { title: 'Git', icon: 'devicon-git-plain' },
+          { title: 'Grunt', icon: 'devicon-grunt-plain' },
           { title: 'gulp', icon: 'devicon-gulp-plain' },
           { title: 'HTML5', icon: 'devicon-html5-plain' },
           { title: 'JavaScript', icon: 'devicon-javascript-plain' },
@@ -260,6 +285,7 @@ export default {
           { title: 'React', icon: 'devicon-react-original' },
           { title: 'Redis', icon: 'devicon-redis-plain' },
           { title: 'Sass', icon: 'devicon-sass-original' },
+          { title: 'TypeScript', icon: 'devicon-typescript-plain' },
           { title: 'Vue.js', icon: 'devicon-vuejs-plain' },
           { title: 'webpack', icon: 'devicon-webpack-plain' },
           { title: 'WordPress', icon: 'devicon-wordpress-plain' },

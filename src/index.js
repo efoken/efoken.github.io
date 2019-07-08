@@ -13,7 +13,6 @@ smoothscroll.polyfill();
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 
-// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   components: { App },
