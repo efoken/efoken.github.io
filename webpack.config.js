@@ -139,12 +139,12 @@ const config = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          { loader: 'sass-loader', options: { implementation: require('sass') } },
         ] : [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'postcss-loader' },
-          { loader: 'sass-loader' },
+          { loader: 'sass-loader', options: { implementation: require('sass') } },
         ],
       },
       {
