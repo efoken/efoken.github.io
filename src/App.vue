@@ -1,16 +1,7 @@
 <template>
   <div class="main-wrapper">
-    <b-navbar
-      id="sideNav"
-      toggleable="lg"
-      type="dark"
-      variant="primary"
-      fixed="top"
-    >
-      <b-navbar-brand
-        href="#"
-        @click="scrollToAnchor"
-      >
+    <b-navbar id="sideNav" toggleable="lg" type="dark" variant="primary" fixed="top">
+      <b-navbar-brand href="#" @click="scrollToAnchor">
         <span class="d-block d-lg-none">Eike Foken</span>
         <span class="d-none d-lg-block">
           <img
@@ -18,70 +9,33 @@
             src="./assets/profile.jpg"
             srcset="./assets/profile@2x.jpg 2x, ./assets/profile@3x.jpg 3x"
             alt="Eike Foken"
-          >
+          />
         </span>
       </b-navbar-brand>
       <b-navbar-toggle target="navbarSupportedContent" />
-      <b-collapse
-        id="navbarSupportedContent"
-        is-nav
-      >
+      <b-collapse id="navbarSupportedContent" is-nav>
         <b-navbar-nav v-b-scrollspy>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#about"
-              @click="scrollToAnchor"
-            >
-              About
-            </a>
+            <a class="nav-link" href="#about" @click="scrollToAnchor">About</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#experience"
-              @click="scrollToAnchor"
-            >
-              Experience
-            </a>
+            <a class="nav-link" href="#experience" @click="scrollToAnchor">Experience</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#education"
-              @click="scrollToAnchor"
-            >
-              Education
-            </a>
+            <a class="nav-link" href="#education" @click="scrollToAnchor">Education</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#skills"
-              @click="scrollToAnchor"
-            >
-              Skills
-            </a>
+            <a class="nav-link" href="#skills" @click="scrollToAnchor">Skills</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#interests"
-              @click="scrollToAnchor"
-            >
-              Interests
-            </a>
+            <a class="nav-link" href="#interests" @click="scrollToAnchor">Interests</a>
           </li>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
     <div class="container-fluid p-0">
-
-      <section
-        id="about"
-        class="resume-section p-3 p-lg-5 d-flex d-column"
-      >
+      <section id="about" class="resume-section p-3 p-lg-5 d-flex d-column">
         <div class="my-auto">
           <h1 class="mb-0">
             Eike
@@ -93,9 +47,7 @@
               :style="{ unicodeBidi: 'bidi-override', direction: 'rtl' }"
               href="#"
               @click="contactMe"
-            >
-              ed.nekofekie@tkatnok
-            </a>
+            >ed.nekofekie@tkatnok</a>
           </div>
           <p class="lead mb-5">
             I am Eike Foken, a Web and Frontend Developer with 7 years of experience with modern web
@@ -110,10 +62,7 @@
               rel="noopener noreferrer"
               aria-label="Xing"
             >
-              <i
-                class="ion ion-logo-xing"
-                aria-hidden="true"
-              />
+              <i class="ion ion-logo-xing" aria-hidden="true" />
             </a>
             <a
               href="https://github.com/efoken"
@@ -121,10 +70,7 @@
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              <i
-                class="ion ion-logo-github"
-                aria-hidden="true"
-              />
+              <i class="ion ion-logo-github" aria-hidden="true" />
             </a>
             <a
               href="https://www.facebook.com/eike.foken"
@@ -132,21 +78,15 @@
               rel="noopener noreferrer"
               aria-label="Facebook"
             >
-              <i
-                class="ion ion-logo-facebook"
-                aria-hidden="true"
-              />
+              <i class="ion ion-logo-facebook" aria-hidden="true" />
             </a>
           </div>
         </div>
       </section>
 
-      <hr class="m-0">
+      <hr class="m-0" />
 
-      <section
-        id="experience"
-        class="resume-section p-3 p-lg-5 d-flex flex-column"
-      >
+      <section id="experience" class="resume-section p-3 p-lg-5 d-flex flex-column">
         <div class="my-auto">
           <h2 class="mb-5">Experience</h2>
 
@@ -162,22 +102,15 @@
               <p>{{ experience.description }}</p>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">
-                {{ experience.startDate }} - {{ experience.endDate }}
-              </span>
+              <span class="text-primary">{{ experience.startDate }} - {{ experience.endDate }}</span>
             </div>
           </div>
-
         </div>
-
       </section>
 
-      <hr class="m-0">
+      <hr class="m-0" />
 
-      <section
-        id="education"
-        class="resume-section p-3 p-lg-5 d-flex flex-column"
-      >
+      <section id="education" class="resume-section p-3 p-lg-5 d-flex flex-column">
         <div class="my-auto">
           <h2 class="mb-5">Education</h2>
 
@@ -194,35 +127,22 @@
               <p>GPA: {{ education.gpa }}</p>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">
-                {{ education.startDate }} - {{ education.endDate }}
-              </span>
+              <span class="text-primary">{{ education.startDate }} - {{ education.endDate }}</span>
             </div>
           </div>
-
         </div>
       </section>
 
-      <hr class="m-0">
+      <hr class="m-0" />
 
-      <section
-        id="skills"
-        class="resume-section p-3 p-lg-5 d-flex flex-column"
-      >
+      <section id="skills" class="resume-section p-3 p-lg-5 d-flex flex-column">
         <div class="my-auto">
           <h2 class="mb-5">Skills</h2>
 
           <div class="subheading mb-3">Programming Languages &amp; Tools</div>
           <ul class="list-inline dev-icons">
-            <li
-              v-for="tool in skills.tools"
-              :key="tool.icon"
-              class="list-inline-item"
-            >
-              <i
-                :class="tool.icon"
-                :aria-label="tool.title"
-              />
+            <li v-for="tool in skills.tools" :key="tool.icon" class="list-inline-item">
+              <i :class="tool.icon" :aria-label="tool.title" />
             </li>
           </ul>
 
@@ -230,7 +150,7 @@
           <ul class="list-icons">
             <li>
               <i class="ion ion-md-checkmark" />
-              Mobile-First, Responsive Design
+              Offline-First, Mobile, Responsive Design
             </li>
             <li>
               <i class="ion ion-md-checkmark" />
@@ -248,12 +168,9 @@
         </div>
       </section>
 
-      <hr class="m-0">
+      <hr class="m-0" />
 
-      <section
-        id="interests"
-        class="resume-section p-3 p-lg-5 d-flex flex-column"
-      >
+      <section id="interests" class="resume-section p-3 p-lg-5 d-flex flex-column">
         <div class="my-auto">
           <h2 class="mb-5">Interests</h2>
           <p>
@@ -267,7 +184,6 @@
           </p>
         </div>
       </section>
-
     </div>
   </div>
 </template>
@@ -280,28 +196,32 @@ export default {
         {
           title: 'Senior Web Developer',
           company: 'Cybay New Media GmbH, Hanover',
-          description: 'In the agency I am dealing with the creation of websites, further development of existing websites, as well as the care of existing customers. In addition to PHP, Laravel and WordPress, the technologies used include JavaScript, React for the development of Progressive Web Apps and React Native for mobile app development.',
+          description:
+            'In the agency I am dealing with the creation of websites, further development of existing websites, as well as the care of existing customers. In addition to PHP, Laravel and WordPress, the technologies used include JavaScript, React for the development of Progressive Web Apps and React Native for mobile app development.',
           startDate: 'January 2018',
           endDate: 'Present',
         },
         {
           title: 'Software Developer',
           company: 'ABIAN GmbH, Hanover',
-          description: 'Originally hired as a developer for web-based software (e.g. for the Deutsche Messe AG and CEBIT), over time I took over more and more tasks and was responsible for the implementation of responsive websites and mobile apps, from conception to development towards implementation with PHP, JavaScript and CSS with well known frameworks like Laravel, Angular, React and Bootstrap.',
+          description:
+            'Originally hired as a developer for web-based software (e.g. for the Deutsche Messe AG and CEBIT), over time I took over more and more tasks and was responsible for the implementation of responsive websites and mobile apps, from conception to development towards implementation with PHP, JavaScript and CSS with well known frameworks like Laravel, Angular, React and Bootstrap.',
           startDate: 'January 2014',
           endDate: 'December 2017',
         },
         {
           title: 'Junior Web Developer',
           company: 'eMedienservice Nord, Oldenburg',
-          description: 'An agency, a subsidiary of the Nordwest-Zeitung, from which I was taken over after working at QP media GmbH. In addition to the independent development of responsive websites and WordPress theming, my activities also included the programming of www.nwzonline.de with Java.',
+          description:
+            'An agency, a subsidiary of the Nordwest-Zeitung, from which I was taken over after working at QP media GmbH. In addition to the independent development of responsive websites and WordPress theming, my activities also included the programming of www.nwzonline.de with Java.',
           startDate: 'August 2013',
           endDate: 'December 2013',
         },
         {
           title: 'Junior Web Developer',
           company: 'QP media GmbH, Oldenburg',
-          description: 'A small startup, sponsored by Nordwest-Zeitung, which dealt with couponing and printing vouchers. From the first day on I accompanied the startup, developed a well-known, regional coupon platform. Programming languages used included Python (with Django) and JavaScript.',
+          description:
+            'A small startup, sponsored by Nordwest-Zeitung, which dealt with couponing and printing vouchers. From the first day on I accompanied the startup, developed a well-known, regional coupon platform. Programming languages used included Python (with Django) and JavaScript.',
           startDate: 'October 2011',
           endDate: 'July 2013',
         },

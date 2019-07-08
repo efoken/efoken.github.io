@@ -16,9 +16,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
-const { NODE_ENV } = process.env;
-
-const buildingForLocal = NODE_ENV === 'development';
+const buildingForLocal = process.env.NODE_ENV === 'development';
 const outputFilename = buildingForLocal ? '[name]' : '[name].[hash]';
 
 const config = {
@@ -41,9 +39,12 @@ const config = {
       }),
       new OptimizeCssAssetsPlugin({
         cssProcessorPluginOptions: {
-          preset: ['default', {
-            discardComments: { removeAll: true },
-          }],
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
         },
       }),
       new PurifyCssPlugin({
@@ -127,25 +128,33 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.scss$/,
-        use: !buildingForLocal ? [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          { loader: 'sass-loader', options: { implementation: require('sass') } },
-        ] : [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'postcss-loader' },
-          { loader: 'sass-loader', options: { implementation: require('sass') } },
-        ],
+        use: !buildingForLocal
+          ? [
+              MiniCssExtractPlugin.loader,
+              'css-loader',
+              'postcss-loader',
+              {
+                loader: 'sass-loader',
+                options: {
+                  implementation: require('sass'),
+                },
+              },
+            ]
+          : [
+              'style-loader',
+              'css-loader',
+              'postcss-loader',
+              {
+                loader: 'sass-loader',
+                options: {
+                  implementation: require('sass'),
+                },
+              },
+            ],
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -177,9 +186,7 @@ if (!buildingForLocal) {
       domain: 'eikefoken.com',
     }),
     new RobotstxtPlugin({
-      policy: [
-        { userAgent: '*', disallow: '' },
-      ],
+      policy: [{ userAgent: '*', disallow: '' }],
       sitemap: 'https://eikefoken.com/sitemap.xml',
     }),
     new SitemapPlugin('https://eikefoken.com', ['/'], {
