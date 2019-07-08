@@ -54,7 +54,7 @@
             I am Eike Foken, a Web and Frontend Developer with nearly
             {{ experiences.slice(-1)[0].startDate.fromNow(true) }} of experience with modern web
             technologies and frameworks. I am {{ about.birthDate.fromNow(true) }} old, currently
-            living in Hanover together with my wife and our two cats. I was born on 26th of March
+            living in Berlin together with my wife and our two cats. I was born on 26th of March
             1987 in Aurich, a small town in East Frisia near the north sea.
           </p>
           <div class="social-icons">
