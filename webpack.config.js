@@ -2,22 +2,23 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
-const PurifyCssPlugin = require('purifycss-webpack');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const TerserPlugin = require('terser-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const buildingForLocal = process.env.NODE_ENV === 'development';
 const outputFilename = buildingForLocal ? '[name]' : '[name].[hash]';
 
 const config = {
+  entry: path.join(__dirname, 'src/index.tsx'),
   output: {
     filename: `${outputFilename}.js`,
   },
@@ -45,19 +46,16 @@ const config = {
           ],
         },
       }),
-      new PurifyCssPlugin({
-        paths: glob.sync(path.join(__dirname, 'src/**.{js,vue}')),
-        purifyOptions: {
-          whitelist: ['*navbar*', 'bg-primary', 'fixed-top'],
-        },
+      new PurgecssPlugin({
+        paths: glob.sync(path.join(__dirname, 'src/**.{js,ts,tsx,html}')),
+        whitelist: ['svg'],
+        whitelistPatterns: [/navbar/, /^bg-primary$/, /^fixed-top$/, /collapse/, /container/],
       }),
+      new ImageminPlugin(),
     ],
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      vue$: 'vue/dist/vue.js',
-    },
+    extensions: ['.js', '.json', '.ts', '.tsx'],
   },
   resolveLoader: {
     modules: ['node_modules'],
@@ -74,7 +72,7 @@ const config = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
-      template: 'index.html',
+      template: path.join(__dirname, 'src/index.html'),
       templateParameters: {
         buildingForLocal,
       },
@@ -102,7 +100,6 @@ const config = {
         },
       ],
     }),
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: `${outputFilename}.css`,
       chunkFilename: `${outputFilename}.css`,
@@ -111,18 +108,12 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: 'babel-loader',
-          },
-        },
-      },
-      {
-        test: /\.js$/,
+        test: /\.(js|json|tsx?)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+        },
       },
       {
         test: /\.css$/,
@@ -155,19 +146,10 @@ const config = {
             ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         loader: 'file-loader',
-        query: {
+        options: {
           name: `img/${outputFilename}.[ext]`,
-          useRelativePath: buildingForLocal,
-        },
-      },
-      {
-        test: /\.(ttf|eot|woff2?|svg)$/,
-        loader: 'file-loader',
-        query: {
-          name: `fonts/${outputFilename}.[ext]`,
-          useRelativePath: buildingForLocal,
         },
       },
     ],

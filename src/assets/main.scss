@@ -1,7 +1,6 @@
 $white: #fff;
 $gray-700: #444;
-$plum: #4e4e5b;
-$primary: $plum;
+$primary: #4e4e5b;
 
 $body-color: #757575;
 
@@ -43,10 +42,7 @@ body {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   text-transform: uppercase;
 }
 
@@ -68,7 +64,7 @@ h1 {
   > li {
     position: relative;
 
-    i {
+    svg {
       left: -1.5rem;
       position: absolute;
       text-align: center;
@@ -82,15 +78,15 @@ h1 {
   display: flex;
 
   a {
+    align-items: center;
     background-color: $gray-700;
     border-radius: 100%;
     color: $white;
-    display: block;
+    display: flex;
     font-size: 1.5rem;
     height: 3.5rem;
-    line-height: (3.5 / 1.5);
+    justify-content: center;
     margin-right: 1rem;
-    text-align: center;
     width: 3.5rem;
 
     &:last-child {
@@ -111,8 +107,12 @@ h1 {
     margin-right: 1rem;
     margin-bottom: 1rem;
 
-    i:hover {
-      color: $primary;
+    svg {
+      display: block;
+
+      &:hover {
+        color: $primary;
+      }
     }
   }
 }

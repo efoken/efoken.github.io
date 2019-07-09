@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "extends": ["airbnb-typescript", "prettier", "prettier/react", "prettier/@typescript-eslint"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "global-require": "off",
+    "no-new": "off"
+  }
+}
