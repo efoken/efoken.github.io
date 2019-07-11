@@ -72,6 +72,7 @@ const config = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
+      favicon: path.join(__dirname, 'src/assets/favicon.ico'),
       template: path.join(__dirname, 'src/index.html'),
       templateParameters: {
         buildingForLocal,
@@ -162,9 +163,6 @@ if (!buildingForLocal) {
       staticDir: path.join(__dirname, 'dist'),
       routes: ['/'],
     }),
-    new CnameWebpackPlugin({
-      domain: 'eikefoken.com',
-    }),
     new RobotstxtPlugin({
       policy: [{ userAgent: '*', disallow: '' }],
       sitemap: 'https://eikefoken.com/sitemap.xml',
@@ -173,6 +171,10 @@ if (!buildingForLocal) {
       skipGzip: true,
     }),
     new OfflinePlugin(),
+    // CNAME goes last, because we don't want the offline-plugin to cache it
+    new CnameWebpackPlugin({
+      domain: 'eikefoken.com',
+    }),
   ]);
 }
 
