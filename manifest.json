@@ -1,46 +1,15 @@
 {
-  "icons": [
-    {
-      "src": "icon_1024x1024.04c544b0d8baf1ff37b11d017dcbce5d.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_512x512.f5638ef58cc7a8dd45dff365e600b706.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_384x384.ca7676afa4e2fc99a351c07d113eeb86.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_256x256.f79af961a5f4519030f4b5e5d0e26c55.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_192x192.998288623e2efe379d337b3bd50f1579.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_128x128.c6a4d11cb200fffbc2ada83195d4092c.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "icon_96x96.63188fa896398c41157fa14067b55867.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    }
-  ],
   "name": "Eike Foken",
   "short_name": "Eike Foken",
-  "orientation": "portrait",
-  "display": "standalone",
-  "start_url": ".",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
   "background_color": "#fff",
+  "display": "fullscreen",
+  "start_url": "/",
   "theme_color": "#4e4e5b"
 }
