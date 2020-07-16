@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "deploy": "rm -rf out && yarn build && yarn export && touch out/.nojekyll && touch out/CNAME && echo \"eikefoken.com\" >> out/CNAME && gh-pages -d out -t true",
+    "deploy": "rm -rf out && yarn build && yarn export && touch out/.nojekyll && touch out/CNAME && echo \"eikefoken.com\" >> out/CNAME && gh-pages -b master -d out -t true",
     "dev": "next",
     "export": "next export",
     "lint": "eslint --ext .js,.ts,.tsx .",
