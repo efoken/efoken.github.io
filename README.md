@@ -21,4 +21,5 @@ yarn build
 yarn build --report
 ```
 
-For a detailed explanation on how things work, check out the [React docs](https://reactjs.org/docs/getting-started.html).
+For a detailed explanation on how things work, check out the
+[React docs](https://reactjs.org/docs/getting-started.html).

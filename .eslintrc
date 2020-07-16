@@ -1,12 +1,15 @@
 {
   "root": true,
-  "extends": ["airbnb-typescript", "prettier", "prettier/react", "prettier/@typescript-eslint"],
+  "extends": ["airbnb-typescript-prettier"],
+  "parserOptions": {
+    "project": null
+  },
   "env": {
     "browser": true,
     "node": true
   },
   "rules": {
-    "global-require": "off",
-    "no-new": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }

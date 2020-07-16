@@ -1,0 +1,15 @@
+{
+  "name": "Eike Foken",
+  "short_name": "Eike Foken",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "background_color": "#fff",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#4e4e5b"
+}
