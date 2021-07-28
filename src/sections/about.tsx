@@ -9,7 +9,7 @@ function handleContact(ev: React.MouseEvent<HTMLAnchorElement>) {
   window.location.href = atob('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=');
 }
 
-const About: React.FC = () => (
+const About: React.VFC = () => (
   <Box
     component="section"
     id="about"

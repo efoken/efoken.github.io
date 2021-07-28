@@ -26,7 +26,7 @@ import {
 } from 'react-icons/fa';
 import { IoMdCheckmark } from 'react-icons/io';
 
-const Skills: React.FC = () => (
+const Skills: React.VFC = () => (
   <Box
     component="section"
     id="skills"

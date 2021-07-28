@@ -1,4 +1,5 @@
-import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
 import createPalette from '@material-ui/core/styles/createPalette';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -14,13 +15,13 @@ const palette = createPalette({
   },
 });
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => (
+const App: React.VFC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       <title>Eike Foken</title>
     </Head>
     <ThemeProvider
-      theme={createMuiTheme({
+      theme={createTheme({
         palette,
         typography: {
           fontWeightBold: 800,
@@ -75,7 +76,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
         },
         overrides: {
           MuiAvatar: {
-            circle: {
+            circular: {
               borderColor: 'rgba(255, 255, 255, 0.2)',
               borderStyle: 'solid',
               borderWidth: 8,

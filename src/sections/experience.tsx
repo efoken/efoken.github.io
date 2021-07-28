@@ -3,7 +3,7 @@ import { DateTime } from 'luxon';
 import React from 'react';
 import data from '../data.json';
 
-const Experience: React.FC = () => (
+const Experience: React.VFC = () => (
   <Box
     component="section"
     id="experience"
