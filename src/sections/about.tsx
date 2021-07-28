@@ -1,7 +1,7 @@
 import { Box, IconButton, Link, Typography } from '@material-ui/core';
 import { DateTime } from 'luxon';
 import React from 'react';
-import { IoLogoFacebook, IoLogoGithub, IoLogoXing } from 'react-icons/io';
+import { IoLogoFacebook, IoLogoGithub, IoLogoLinkedin, IoLogoXing } from 'react-icons/io';
 import data from '../data.json';
 
 function handleContact(ev: React.MouseEvent<HTMLAnchorElement>) {
@@ -55,6 +55,14 @@ const About: React.VFC = () => (
         aria-label="Xing"
       >
         <IoLogoXing aria-hidden="true" />
+      </IconButton>
+      <IconButton
+        href="https://www.linkedin.com/in/eike-foken/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <IoLogoLinkedin aria-hidden="true" />
       </IconButton>
       <IconButton
         href="https://github.com/efoken"
