@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "routes": [
     {
       "src": "^/service-worker.js$",
@@ -17,7 +16,7 @@
   "builds": [
     {
       "src": "next.config.js",
-      "use": "@now/next"
+      "use": "@vercel/next"
     }
   ]
 }
