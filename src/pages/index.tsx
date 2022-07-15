@@ -1,16 +1,11 @@
 import { Avatar, Box, Button, Divider, Drawer, Link } from '@mui/material';
 import { NextPage } from 'next';
 import Scrollspy from 'react-scrollspy';
-import smoothscroll from 'smoothscroll-polyfill';
 import About from '../sections/about';
 import Education from '../sections/education';
 import Experience from '../sections/experience';
 import Interests from '../sections/interests';
 import Skills from '../sections/skills';
-
-if (typeof window !== 'undefined') {
-  smoothscroll.polyfill();
-}
 
 function handleScrollToAnchor(ev: React.MouseEvent<HTMLElement>) {
   const href = ev.currentTarget.getAttribute('href');

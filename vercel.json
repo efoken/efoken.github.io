@@ -1,11 +1,11 @@
 {
   "routes": [
     {
-      "src": "^/service-worker.js$",
-      "dest": "/_next/public/service-worker.js",
+      "src": "^/sw.js$",
+      "dest": "/_next/public/sw.js",
       "headers": {
         "cache-control": "public, max-age=43200, immutable",
-        "Service-Worker-Allowed": "/"
+        "service-worker-allowed": "/"
       }
     },
     {
@@ -15,7 +15,7 @@
   ],
   "builds": [
     {
-      "src": "next.config.js",
+      "src": "next.config.mjs",
       "use": "@vercel/next"
     }
   ]
