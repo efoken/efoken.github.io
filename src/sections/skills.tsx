@@ -43,7 +43,7 @@ const Skills: FC = () => (
           Skills
         </Typography>
       </Box>
-      <Typography gutterBottom variant="h4">
+      <Typography gutterBottom component="h3" variant="h4">
         Programming Languages &amp; Tools
       </Typography>
       <Box display="flex" flexWrap="wrap" mb={2}>
@@ -82,7 +82,7 @@ const Skills: FC = () => (
           </Box>
         ))}
       </Box>
-      <Typography gutterBottom variant="h4">
+      <Typography gutterBottom component="h3" variant="h4">
         Workflow
       </Typography>
       <Box display="flex" alignItems="center">

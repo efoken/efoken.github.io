@@ -24,7 +24,7 @@ const About: FC = () => (
         <Typography variant="h1" color="textSecondary">
           Eike Foken
         </Typography>
-        <Typography variant="h4">
+        <Typography component="p" variant="h4">
           Ebertystr. 10 · Berlin, DE 10249 · <Link href="tel:+4915785916655">+49 1578 5916655</Link>{' '}
           ·{' '}
           <Link
