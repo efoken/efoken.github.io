@@ -44,12 +44,21 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
     return (
       <Html lang="en">
         <Head>
-          <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#4e4e5b" />
+          <meta name="application-name" content="Eike Foken" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta name="apple-mobile-web-app-title" content="Eike Foken" />
           <meta
             name="description"
             content="I am Eike Foken, a 32 years old Web and Frontend Developer with nearly 8 years of experience with modern web technologies and frameworks, living in Berlin."
           />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="msapplication-TileColor" content="#4e4e5b" />
+          <meta name="msapplication-tap-highlight" content="no" />
+          <meta name="theme-color" content="#4e4e5b" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css?family=Muli:400,800|Saira+Extra+Condensed:500,700&display=swap"
             rel="stylesheet"
