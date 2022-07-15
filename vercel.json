@@ -15,7 +15,7 @@
   ],
   "builds": [
     {
-      "src": "next.config.mjs",
+      "src": "next.config.js",
       "use": "@vercel/next"
     }
   ]

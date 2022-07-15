@@ -8,8 +8,9 @@
       "sizes": "1024x1024"
     }
   ],
+  "theme_color": "#4e4e5b",
   "background_color": "#fff",
-  "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#4e4e5b"
+  "display": "fullscreen",
+  "orientation": "portrait"
 }
