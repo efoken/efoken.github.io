@@ -57,6 +57,8 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
           <meta name="msapplication-TileColor" content="#4e4e5b" />
           <meta name="msapplication-tap-highlight" content="no" />
           <meta name="theme-color" content="#4e4e5b" />
+          <link rel="apple-touch-icon" href="/images/touch-icon-iphone.png" />
+          <link rel="apple-touch-icon" sizes="152x152" href="/images/touch-icon-ipad.png" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link

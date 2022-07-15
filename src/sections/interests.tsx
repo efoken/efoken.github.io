@@ -23,8 +23,8 @@ const Interests: FC = () => (
       </Typography>
       <Typography gutterBottom>
         But I also enjoy being at home. So, a large amount of my free time I spend with exploring
-        the latest technology advancements in the front-end web development world in the company of
-        my wife, who is an artist, and our two cats.
+        the latest technology advancements in the front-end web development world, in the company of
+        my wife, who is an artist, and our four cats.
       </Typography>
     </Box>
   </Box>
