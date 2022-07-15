@@ -1,6 +1,6 @@
 # efoken.github.io
 
-> A React project
+> A Next.js project
 
 ## Build Setup
 
@@ -8,18 +8,12 @@
 # install dependencies
 yarn install
 
-# serve with hot reload at localhost:8080
-yarn start
-
-# build for development without minification
+# serve with hot reload at localhost:3000
 yarn dev
 
-# build for production with minification
-yarn build
-
-# build for production and view the bundle analyzer report
-yarn build --report
+# build and deploy for production
+yarn deploy
 ```
 
 For a detailed explanation on how things work, check out the
-[React docs](https://reactjs.org/docs/getting-started.html).
+[Next.js docs](https://nextjs.org/docs/getting-started).
