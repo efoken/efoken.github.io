@@ -1,7 +1,7 @@
-import { Box, Typography } from '@material-ui/core';
-import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { FC } from 'react';
 
-const Interests: React.VFC = () => (
+const Interests: FC = () => (
   <Box
     component="section"
     id="interests"

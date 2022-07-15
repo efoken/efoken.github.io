@@ -1,15 +1,15 @@
-import { Box, IconButton, Link, Typography } from '@material-ui/core';
+import { Box, IconButton, Link, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
-import React from 'react';
+import { FC, MouseEvent } from 'react';
 import { IoLogoFacebook, IoLogoGithub, IoLogoLinkedin, IoLogoXing } from 'react-icons/io';
 import data from '../data.json';
 
-function handleContact(ev: React.MouseEvent<HTMLAnchorElement>) {
+function handleContact(ev: MouseEvent<HTMLAnchorElement>) {
   ev.preventDefault();
   window.location.href = atob('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=');
 }
 
-const About: React.VFC = () => (
+const About: FC = () => (
   <Box
     component="section"
     id="about"

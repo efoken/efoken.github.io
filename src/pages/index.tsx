@@ -1,6 +1,5 @@
-import { Avatar, Box, Button, Divider, Drawer, Hidden, Link } from '@material-ui/core';
+import { Avatar, Box, Button, Divider, Drawer, Link } from '@mui/material';
 import { NextPage } from 'next';
-import React from 'react';
 import Scrollspy from 'react-scrollspy';
 import smoothscroll from 'smoothscroll-polyfill';
 import About from '../sections/about';
@@ -28,7 +27,7 @@ function handleScrollToAnchor(ev: React.MouseEvent<HTMLElement>) {
 
 const Home: NextPage = () => (
   <Box display="flex">
-    <Hidden smDown>
+    <Box display={{ xs: 'none', md: 'block' }}>
       <Drawer variant="permanent" PaperProps={{ style: { width: 272 } }}>
         <Box mt="auto" mx="auto">
           <Link href="/" onClick={handleScrollToAnchor}>
@@ -42,6 +41,7 @@ const Home: NextPage = () => (
         <Box component="nav" mt={2} mb="auto">
           <Scrollspy
             items={['about', 'experience', 'education', 'skills', 'interests']}
+            // @ts-expect-error: `children` must be explicitly defined since React 18
             componentTag={({ children }) => (
               <Box display="flex" flexDirection="column">
                 {children}
@@ -67,7 +67,7 @@ const Home: NextPage = () => (
           </Scrollspy>
         </Box>
       </Drawer>
-    </Hidden>
+    </Box>
     <main>
       <About />
       <Divider />

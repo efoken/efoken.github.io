@@ -1,9 +1,9 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
-import React from 'react';
+import { FC } from 'react';
 import data from '../data.json';
 
-const Education: React.VFC = () => (
+const Education: FC = () => (
   <Box
     component="section"
     id="education"

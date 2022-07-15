@@ -9,7 +9,11 @@
     "node": true
   },
   "rules": {
-    "@typescript-eslint/no-var-requires": "off",
-    "react/jsx-props-no-spreading": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unstable-nested-components": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off"
   }
 }

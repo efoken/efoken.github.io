@@ -1,5 +1,5 @@
-import { Box, Typography } from '@material-ui/core';
-import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { cloneElement, FC } from 'react';
 import { DiAtom, DiDjango, DiGit, DiNginx, DiPostgresql, DiRedis } from 'react-icons/di';
 import {
   FaAngular,
@@ -27,7 +27,7 @@ import {
 } from 'react-icons/fa';
 import { IoMdCheckmark } from 'react-icons/io';
 
-const Skills: React.VFC = () => (
+const Skills: FC = () => (
   <Box
     component="section"
     id="skills"
@@ -78,7 +78,7 @@ const Skills: React.VFC = () => (
           { title: 'WordPress', icon: <FaWordpress /> },
         ].map((tool) => (
           <Box key={tool.title} fontSize={48} lineHeight={1} mr={2} mb={2}>
-            {React.cloneElement(tool.icon, { 'aria-label': tool.title })}
+            {cloneElement(tool.icon, { 'aria-label': tool.title })}
           </Box>
         ))}
       </Box>

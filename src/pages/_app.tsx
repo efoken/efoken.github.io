@@ -1,11 +1,18 @@
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-import createPalette from '@material-ui/core/styles/createPalette';
+import { EmotionCache } from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import { FC } from 'react';
+import createEmotionCache from '../utils/createEmotionCache';
 
-const palette = createPalette({
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+const palette = {
+  background: {
+    default: '#fafafa',
+  },
   primary: {
     main: '#4e4e5b',
   },
@@ -13,77 +20,75 @@ const palette = createPalette({
     primary: '#757575',
     secondary: '#444',
   },
-});
+};
 
-const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    jssStyles?.parentElement?.removeChild(jssStyles);
-  }, []);
-
-  return (
-    <>
-      <Head>
-        <title>Eike Foken</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider
-        theme={createTheme({
-          palette,
-          typography: {
-            fontWeightBold: 800,
-            allVariants: {
-              fontFamily: 'Muli, sans-serif',
-            },
-            h1: {
-              fontFamily: '"Saira Extra Condensed", sans-serif',
-              fontSize: 96,
-              fontWeight: 700,
-              lineHeight: 88 / 96,
-              textTransform: 'uppercase',
-            },
-            h2: {
-              fontFamily: '"Saira Extra Condensed", sans-serif',
-              fontSize: 56,
-              fontWeight: 700,
-              lineHeight: 72 / 56,
-              textTransform: 'uppercase',
-            },
-            h3: {
-              fontFamily: '"Saira Extra Condensed", sans-serif',
-              fontSize: 32,
-              fontWeight: 700,
-              lineHeight: 40 / 32,
-              textTransform: 'uppercase',
-            },
-            h4: {
-              fontFamily: '"Saira Extra Condensed", sans-serif',
-              fontSize: 24,
-              fontWeight: 500,
-              lineHeight: 36 / 24,
-              textTransform: 'uppercase',
-            },
-            body1: {
-              fontSize: 18,
-              letterSpacing: 'normal',
-              lineHeight: 24 / 18,
-            },
-            body2: {
-              fontSize: 16,
-              letterSpacing: 'normal',
-              lineHeight: 1.5,
-            },
-            button: {
-              fontSize: 16,
-              fontWeight: 800,
-              letterSpacing: 0.8,
-              lineHeight: 1.5,
-              textTransform: 'uppercase',
-            },
+const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
+  Component,
+  emotionCache = clientSideEmotionCache,
+  pageProps,
+}) => (
+  <CacheProvider value={emotionCache}>
+    <Head>
+      <title>Eike Foken</title>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+    </Head>
+    <ThemeProvider
+      theme={createTheme({
+        palette,
+        typography: {
+          fontWeightBold: 800,
+          allVariants: {
+            fontFamily: 'Muli, sans-serif',
           },
-          overrides: {
-            MuiAvatar: {
+          h1: {
+            fontFamily: '"Saira Extra Condensed", sans-serif',
+            fontSize: 96,
+            fontWeight: 700,
+            lineHeight: 88 / 96,
+            textTransform: 'uppercase',
+          },
+          h2: {
+            fontFamily: '"Saira Extra Condensed", sans-serif',
+            fontSize: 56,
+            fontWeight: 700,
+            lineHeight: 72 / 56,
+            textTransform: 'uppercase',
+          },
+          h3: {
+            fontFamily: '"Saira Extra Condensed", sans-serif',
+            fontSize: 32,
+            fontWeight: 700,
+            lineHeight: 40 / 32,
+            textTransform: 'uppercase',
+          },
+          h4: {
+            fontFamily: '"Saira Extra Condensed", sans-serif',
+            fontSize: 24,
+            fontWeight: 500,
+            lineHeight: 36 / 24,
+            textTransform: 'uppercase',
+          },
+          body1: {
+            fontSize: 18,
+            letterSpacing: 'normal',
+            lineHeight: 24 / 18,
+          },
+          body2: {
+            fontSize: 16,
+            letterSpacing: 'normal',
+            lineHeight: 1.5,
+          },
+          button: {
+            fontSize: 16,
+            fontWeight: 800,
+            letterSpacing: 0.8,
+            lineHeight: 1.5,
+            textTransform: 'uppercase',
+          },
+        },
+        components: {
+          MuiAvatar: {
+            styleOverrides: {
               circular: {
                 borderColor: 'rgba(255, 255, 255, 0.2)',
                 borderStyle: 'solid',
@@ -92,7 +97,9 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
                 width: 160,
               },
             },
-            MuiButton: {
+          },
+          MuiButton: {
+            styleOverrides: {
               text: {
                 color: 'rgba(255, 255, 255, 0.65)',
                 padding: 8,
@@ -102,7 +109,9 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
                 },
               },
             },
-            MuiDrawer: {
+          },
+          MuiDrawer: {
+            styleOverrides: {
               root: {
                 width: 272,
               },
@@ -110,24 +119,36 @@ const App: React.VFC<AppProps> = ({ Component, pageProps }) => {
                 backgroundColor: palette.primary.main,
               },
             },
-            MuiTypography: {
+          },
+          MuiIconButton: {
+            styleOverrides: {
+              root: {
+                padding: 12,
+              },
+            },
+          },
+          MuiLink: {
+            defaultProps: {
+              underline: 'hover',
+            },
+          },
+          MuiTypography: {
+            styleOverrides: {
               gutterBottom: {
                 marginBottom: 8,
               },
             },
-          },
-          props: {
-            MuiTypography: {
+            defaultProps: {
               variant: 'body2',
             },
           },
-        })}
-      >
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  );
-};
+        },
+      })}
+    >
+      <CssBaseline />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </CacheProvider>
+);
 
 export default App;
