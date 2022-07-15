@@ -80,7 +80,7 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
             `}
           </Script>
         </Head>
-        <body style={{ margin: 0 }}>
+        <body>
           <Main />
           <NextScript />
         </body>

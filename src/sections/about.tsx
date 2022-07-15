@@ -6,14 +6,13 @@ import data from '../data.json';
 
 function handleContact(ev: MouseEvent<HTMLAnchorElement>) {
   ev.preventDefault();
-  window.location.href = atob('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=');
+  window.location.href = Buffer.from('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=', 'base64').toString();
 }
 
 const About: FC = () => (
   <Box
     component="section"
     id="about"
-    boxSizing="border-box"
     display="flex"
     minHeight={{ xs: 0, md: '100vh' }}
     px={{ xs: 2, md: 6 }}
@@ -28,7 +27,7 @@ const About: FC = () => (
           Ebertystr. 10 · Berlin, DE 10249 · <Link href="tel:+4915785916655">+49 1578 5916655</Link>{' '}
           ·{' '}
           <Link
-            style={{ unicodeBidi: 'bidi-override', direction: 'rtl' }}
+            sx={{ unicodeBidi: 'bidi-override', direction: 'rtl' }}
             href="#contact"
             onClick={handleContact}
           >

@@ -7,7 +7,6 @@ const Education: FC = () => (
   <Box
     component="section"
     id="education"
-    boxSizing="border-box"
     display="flex"
     minHeight={{ xs: 0, md: '100vh' }}
     px={{ xs: 2, md: 6 }}
