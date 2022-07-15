@@ -9,7 +9,7 @@
     "deploy": "rm -rf out && yarn build && yarn export && touch out/.nojekyll && touch out/CNAME && echo \"eikefoken.com\" >> out/CNAME && gh-pages -b master -d out -t true",
     "dev": "next",
     "export": "next export",
-    "lint": "eslint --ext .js,.ts,.tsx .",
+    "lint": "next lint",
     "start": "next start"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
+    "@next/eslint-plugin-next": "^12.2.2",
     "@types/luxon": "^2.3.2",
     "@types/node": "^16.11.44",
     "@types/react": "^18.0.15",

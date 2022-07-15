@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["airbnb-typescript-prettier"],
+  "extends": ["airbnb-typescript-prettier", "plugin:@next/next/recommended"],
   "parserOptions": {
     "project": null
   },
