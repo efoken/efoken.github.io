@@ -1,8 +1,10 @@
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
+import { ReactNode } from 'react';
 import createEmotionCache from '../utils/createEmotionCache';
 
-export default class extends Document {
+export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
@@ -23,7 +25,7 @@ export default class extends Document {
     // This is important. It prevents Emotion to render invalid HTML.
     // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
     const emotionStyles = extractCriticalToChunks(initialProps.html);
-    const emotionStyleTags = emotionStyles.styles.map((style) => (
+    const emotionStyleTags = emotionStyles.styles.map<ReactNode>((style) => (
       <style
         data-emotion={`${style.key} ${style.ids.join(' ')}`}
         key={style.key}
@@ -53,24 +55,19 @@ export default class extends Document {
             rel="stylesheet"
           />
           <meta name="emotion-insertion-point" content="" />
-          {(this.props as any).emotionStyleTags}
-          {process.env.NODE_ENV === 'production' && (
-            <>
-              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41952111-1" />
-              <script
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                  __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag() {
-                    dataLayer.push(arguments);
-                  }
-                  gtag('js', new Date());
-                  gtag('config', 'UA-41952111-1');`,
-                }}
-              />
-            </>
-          )}
+          {this.props.emotionStyleTags}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=UA-41952111-1"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag () { window.dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-41952111-1');
+            `}
+          </Script>
         </Head>
         <body style={{ margin: 0 }}>
           <Main />
