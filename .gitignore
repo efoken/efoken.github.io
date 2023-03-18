@@ -16,3 +16,6 @@ yarn-error.log*
 **/public/sw.js
 **/public/sw.js.map
 **/public/fallback-*.js
+
+# build
+tsconfig.tsbuildinfo
