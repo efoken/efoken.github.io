@@ -1,7 +1,13 @@
 import { Box, IconButton, Link, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
 import { FC, MouseEvent } from 'react';
-import { IoLogoFacebook, IoLogoGithub, IoLogoLinkedin, IoLogoXing } from 'react-icons/io';
+import {
+  IoLogoFacebook,
+  IoLogoGithub,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoLogoXing,
+} from 'react-icons/io';
 import data from '../data.json';
 
 function handleContact(ev: MouseEvent<HTMLAnchorElement>) {
@@ -32,7 +38,8 @@ const About: FC = () => (
             onClick={handleContact}
           >
             moc.liamg@nekofekie
-          </Link>
+          </Link>{' '}
+          · <Link href="https://eikefoken.com/">eikefoken.com</Link>
         </Typography>
       </Box>
       <Box mb={6}>
@@ -41,10 +48,12 @@ const About: FC = () => (
           {Math.ceil(
             DateTime.fromISO(data.experience.slice(-1)[0].startDate).diffNow('years').years * -1,
           )}{' '}
-          years of experience with modern web technologies and frameworks. I am{' '}
+          years of experience with fullstack and web development, using modern technologies and
+          frameworks. I am{' '}
           {Math.floor(DateTime.fromISO(data.about.birthDate).diffNow('years').years * -1)} years
-          old, currently living in Berlin together with my wife and our four cats. I was born on
-          26th of March 1987 in Aurich, a small town in East Frisia near the north sea.
+          old, currently living in Berlin together with my lovely wife and our four cats. I was born
+          on 26th of March 1987 in Aurich, a small town in East Frisia, Northern Germany near the
+          sea.
         </Typography>
       </Box>
       <IconButton
@@ -78,6 +87,14 @@ const About: FC = () => (
         aria-label="Facebook"
       >
         <IoLogoFacebook aria-hidden="true" />
+      </IconButton>
+      <IconButton
+        href="https://www.instagram.com/eike_raju/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <IoLogoInstagram aria-hidden="true" />
       </IconButton>
     </Box>
   </Box>

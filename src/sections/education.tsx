@@ -13,7 +13,7 @@ const Education: FC = () => (
     py={{ xs: 10, md: 6 }}
   >
     <Box my="auto" width="100%">
-      <Box mb={6}>
+      <Box mb={6} sx={{ pageBreakAfter: 'avoid' }}>
         <Typography variant="h2" color="textSecondary">
           Education
         </Typography>
@@ -24,6 +24,7 @@ const Education: FC = () => (
           display="flex"
           flexDirection={{ xs: 'column', md: 'row' }}
           mb={index === data.education.length - 1 ? 0 : 6}
+          sx={{ pageBreakInside: 'avoid' }}
         >
           <Box mr="auto">
             <Typography variant="h3" color="textSecondary">

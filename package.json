@@ -17,7 +17,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.11.13",
+    "@mui/material": "^5.11.15",
     "luxon": "^3.3.0",
     "next": "^13.2.4",
     "next-pwa": "^5.6.0",
@@ -27,20 +27,20 @@
     "react-scrollspy": "^3.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.4",
     "@next/eslint-plugin-next": "^13.2.4",
-    "@types/luxon": "^3.2.0",
-    "@types/node": "^18.15.3",
-    "@types/react": "^18.0.28",
+    "@types/luxon": "^3.2.2",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@types/react-scrollspy": "^3.3.5",
-    "eslint": "^8.36.0",
+    "eslint": "^8.37.0",
     "eslint-config-airbnb-typescript-prettier": "^5.0.0",
     "eslint-config-next": "^13.2.4",
     "gh-pages": "^5.0.0",
-    "prettier": "^2.8.4",
-    "typescript": "^5.0.2",
-    "webpack": "^5.76.2"
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.3",
+    "webpack": "^5.77.0"
   },
   "browserslist": [
     "> 1%",

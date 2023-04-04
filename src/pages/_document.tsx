@@ -1,7 +1,9 @@
 import createEmotionServer from '@emotion/server/create-instance';
+import { DateTime } from 'luxon';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 import { ReactNode } from 'react';
+import data from '../data.json';
 import createEmotionCache from '../utils/createEmotionCache';
 
 export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
@@ -44,13 +46,18 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
     return (
       <Html lang="en">
         <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
           <meta name="application-name" content="Eike Foken" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
           <meta name="apple-mobile-web-app-title" content="Eike Foken" />
           <meta
             name="description"
-            content="I am Eike Foken, a 32 years old Web and Frontend Developer with nearly 8 years of experience with modern web technologies and frameworks, living in Berlin."
+            content={`I am Eike Foken, a ${Math.floor(
+              DateTime.fromISO(data.about.birthDate).diffNow('years').years * -1,
+            )} years old Web and Frontend Developer with nearly ${Math.ceil(
+              DateTime.fromISO(data.experience.slice(-1)[0].startDate).diffNow('years').years * -1,
+            )} years of experience with modern web technologies and frameworks, living in Berlin.`}
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />

@@ -10,15 +10,31 @@ import createEmotionCache from '../utils/createEmotionCache';
 const clientSideEmotionCache = createEmotionCache();
 
 const palette = {
-  background: {
-    default: '#fafafa',
+  light: {
+    mode: 'light' as const,
+    background: {
+      default: '#fafafa',
+    },
+    primary: {
+      main: '#4e4e5b',
+    },
+    text: {
+      primary: '#737373',
+      secondary: '#444',
+    },
   },
-  primary: {
-    main: '#4e4e5b',
-  },
-  text: {
-    primary: '#737373',
-    secondary: '#444',
+  dark: {
+    mode: 'dark' as const,
+    background: {
+      default: '#0d0d0d',
+    },
+    primary: {
+      main: '#4e4e5b',
+    },
+    text: {
+      primary: '#737373',
+      secondary: '#444',
+    },
   },
 };
 
@@ -30,11 +46,10 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
   <CacheProvider value={emotionCache}>
     <Head>
       <title>Eike Foken</title>
-      <meta name="viewport" content="initial-scale=1, width=device-width" />
     </Head>
     <ThemeProvider
       theme={createTheme({
-        palette,
+        palette: palette.light,
         typography: {
           fontWeightBold: 800,
           allVariants: {
@@ -90,6 +105,7 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
           MuiAvatar: {
             styleOverrides: {
               circular: {
+                backgroundColor: 'transparent',
                 borderColor: 'rgba(255, 255, 255, 0.2)',
                 borderStyle: 'solid',
                 borderWidth: 8,
@@ -110,13 +126,25 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
               },
             },
           },
+          MuiCssBaseline: {
+            styleOverrides: {
+              a: {
+                color: palette.light.primary.main,
+                textDecoration: 'none',
+
+                '&:focus-visible': {
+                  outlineColor: '#000',
+                },
+              },
+            },
+          },
           MuiDrawer: {
             styleOverrides: {
               root: {
                 width: 272,
               },
               paper: {
-                backgroundColor: palette.primary.main,
+                backgroundColor: palette.light.primary.main,
               },
             },
           },

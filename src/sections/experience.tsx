@@ -13,7 +13,7 @@ const Experience: FC = () => (
     py={{ xs: 10, md: 6 }}
   >
     <Box my="auto" width="100%">
-      <Box mb={6}>
+      <Box mb={6} sx={{ pageBreakAfter: 'avoid' }}>
         <Typography variant="h2" color="textSecondary">
           Experience
         </Typography>
@@ -24,6 +24,7 @@ const Experience: FC = () => (
           display="flex"
           flexDirection={{ xs: 'column', md: 'row' }}
           mb={index === data.experience.length - 1 ? 0 : 6}
+          sx={{ pageBreakInside: 'avoid' }}
         >
           <Box mr="auto">
             <Typography variant="h3" color="textSecondary">
@@ -32,7 +33,7 @@ const Experience: FC = () => (
             <Typography gutterBottom variant="h4">
               {experience.company}
             </Typography>
-            <Typography>{experience.description}</Typography>
+            <Typography dangerouslySetInnerHTML={{ __html: experience.description }} />
           </Box>
           <Box minWidth={1 / 4}>
             <Typography color="primary" align="right">

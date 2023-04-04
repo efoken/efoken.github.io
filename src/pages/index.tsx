@@ -1,5 +1,7 @@
 import { Avatar, Box, Button, Divider, Drawer, Link } from '@mui/material';
 import { NextPage } from 'next';
+import Image from 'next/image';
+import { MouseEvent } from 'react';
 import Scrollspy from 'react-scrollspy';
 import About from '../sections/about';
 import Education from '../sections/education';
@@ -7,7 +9,7 @@ import Experience from '../sections/experience';
 import Interests from '../sections/interests';
 import Skills from '../sections/skills';
 
-function handleScrollToAnchor(ev: React.MouseEvent<HTMLElement>) {
+function handleScrollToAnchor(ev: MouseEvent<HTMLElement>) {
   const href = ev.currentTarget.getAttribute('href');
   const target = href?.startsWith('#') ? document.querySelector(href) : null;
 
@@ -23,14 +25,12 @@ function handleScrollToAnchor(ev: React.MouseEvent<HTMLElement>) {
 const Home: NextPage = () => (
   <Box display="flex">
     <Box display={{ xs: 'none', md: 'block' }}>
-      <Drawer variant="permanent" PaperProps={{ style: { width: 272 } }}>
+      <Drawer variant="permanent" PaperProps={{ sx: { width: 272 } }}>
         <Box mt="auto" mx="auto">
           <Link href="/" onClick={handleScrollToAnchor}>
-            <Avatar
-              alt="Eike Foken"
-              src="/images/profile.jpg"
-              srcSet="/images/profile@2x.jpg 2x, /images/profile@3x.jpg 3x"
-            />
+            <Avatar>
+              <Image fill src="/images/profile.jpg" alt="Eike Foken" />
+            </Avatar>
           </Link>
         </Box>
         <Box component="nav" mt={2} mb="auto">
