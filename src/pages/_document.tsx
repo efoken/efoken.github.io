@@ -46,7 +46,6 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
           <meta name="application-name" content="Eike Foken" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />

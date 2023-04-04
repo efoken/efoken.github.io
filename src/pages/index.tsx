@@ -24,7 +24,14 @@ function handleScrollToAnchor(ev: MouseEvent<HTMLElement>) {
 
 const Home: NextPage = () => (
   <Box display="flex">
-    <Box display={{ xs: 'none', md: 'block' }}>
+    <Box
+      display={{ xs: 'none', md: 'block' }}
+      sx={{
+        '@media print': {
+          display: 'none',
+        },
+      }}
+    >
       <Drawer variant="permanent" PaperProps={{ sx: { width: 272 } }}>
         <Box mt="auto" mx="auto">
           <Link href="/" onClick={handleScrollToAnchor}>
@@ -67,7 +74,7 @@ const Home: NextPage = () => (
       <About />
       <Divider />
       <Experience />
-      <Divider />
+      <Divider sx={{ pageBreakAfter: 'always' }} />
       <Education />
       <Divider />
       <Skills />

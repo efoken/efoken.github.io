@@ -46,6 +46,7 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
   <CacheProvider value={emotionCache}>
     <Head>
       <title>Eike Foken</title>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
     </Head>
     <ThemeProvider
       theme={createTheme({
@@ -135,6 +136,25 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
                 '&:focus-visible': {
                   outlineColor: '#000',
                 },
+              },
+              '@page': {
+                marginTop: '-10mm',
+                size: 'a4',
+              },
+              '@media print': {
+                body: {
+                  marginBottom: 0,
+                  marginLeft: '10mm',
+                  marginRight: '10mm',
+                  marginTop: 0,
+                },
+              },
+            },
+          },
+          MuiDivider: {
+            styleOverrides: {
+              root: {
+                pageBreakBefore: 'avoid',
               },
             },
           },
