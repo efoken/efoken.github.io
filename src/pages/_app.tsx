@@ -3,7 +3,6 @@ import { CacheProvider } from '@emotion/react';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { FC } from 'react';
 import createEmotionCache from '../utils/createEmotionCache';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -38,7 +37,7 @@ const palette = {
   },
 };
 
-const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
+const App: React.FC<AppProps & { emotionCache?: EmotionCache }> = ({
   Component,
   emotionCache = clientSideEmotionCache,
   pageProps,
@@ -118,6 +117,7 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
           MuiButton: {
             styleOverrides: {
               text: {
+                borderRadius: 0,
                 color: 'rgba(255, 255, 255, 0.65)',
                 padding: 8,
 
@@ -138,7 +138,8 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
                 },
               },
               '@page': {
-                marginTop: '-10mm',
+                marginBottom: '15mm',
+                marginTop: '15mm',
                 size: 'a4',
               },
               '@media print': {
@@ -151,13 +152,6 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
               },
             },
           },
-          MuiDivider: {
-            styleOverrides: {
-              root: {
-                pageBreakBefore: 'avoid',
-              },
-            },
-          },
           MuiDrawer: {
             styleOverrides: {
               root: {
@@ -165,6 +159,7 @@ const App: FC<AppProps & { emotionCache?: EmotionCache }> = ({
               },
               paper: {
                 backgroundColor: palette.light.primary.main,
+                borderRight: 0,
               },
             },
           },

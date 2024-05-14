@@ -55,5 +55,28 @@
       "startDate": "2008-09-01",
       "endDate": "2012-03-31"
     }
+  ],
+  "projects": [
+    {
+      "title": "BARMER Design System",
+      "technologies": ["React Native", "WebComponents", "TypeScript"],
+      "description": "The BARMER Design System is a multi-platform design system with over 100 components that work with React DOM and also React Native. All components are implemented with one single codebase and are adapted for multi-platform support using <a href=\"https://necolas.github.io/react-native-web/\" target=\"_blank\" rel=\"noopener noreferrer\">React Native for Web</a> and offer SSR capibilities. The design system also contains all components as WebComponents that work completely framework-agnostic. I built the whole design system from ground up and implemented every single component with React for 3 platforms, Web, iOS and Android. For the WebComponents I used the great micro-library <a href=\"https://atomicojs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Atomico</a>. While working on this project I contributed a lot to the React Native community, <a href=\"https://emotion.sh/\" target=\"_blank\" rel=\"noopener noreferrer\">Emotion</a>, <a href=\"https://atomicojs.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Atomico</a> and also published some own libraries.",
+      "startDate": "2020-02-01",
+      "endDate": "now"
+    },
+    {
+      "title": "iF Design Award Jury App",
+      "technologies": ["React Native", "Expo", "JavaScript", "Flow"],
+      "description": "The iF Design Award Jury App is an internal app, that is used by jurors to rate and comment on product submissions. It's kind of a barcode scanner, where the jurors can scan the barcode of a product submission and then give a rating and/or nominate products for the Design Award. I used React Native and <a href=\"https://expo.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Expo</a> to create the app and used plain JavaScript with Flow type-checking.",
+      "startDate": "2018-12-01",
+      "endDate": "2019-02-28"
+    },
+    {
+      "title": "iF WORLD DESIGN GUIDE",
+      "technologies": ["PHP", "Laravel", "GraphQL", "React", "JavaScript", "Flow", "Sass"],
+      "description": "The iF WORLD DESIGN GUIDE was a product design platform by the iF Design Award. The platform featured 2,400 design studios, about 3,800 company profiles and more than 500,000 products. The platform was implemented with PHP, <a href=\"https://laravel.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Laravel</a> and GraphQL on the backend and mostly vanilla JavaScript and Flow type-checking on the frontend, plus some micro-frontends that I later implemented with React. The products and everything was saved in a <a href=\"https://www.postgresql.org/\" target=\"_blank\" rel=\"noopener noreferrer\">PostgreSQL</a> database and as the CMS for editorial content I used <a href=\"https://statamic.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Statamic</a>, which is a Git-powered flatfile CMS.",
+      "startDate": "2017-01-01",
+      "endDate": "2019-02-28"
+    }
   ]
 }

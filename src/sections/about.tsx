@@ -1,7 +1,5 @@
 import { Avatar, Box, IconButton, Link, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
-import Image from 'next/image';
-import { FC, MouseEvent } from 'react';
 import {
   IoLogoFacebook,
   IoLogoGithub,
@@ -9,18 +7,20 @@ import {
   IoLogoLinkedin,
   IoLogoXing,
 } from 'react-icons/io';
-import Section from '../components/Section';
+import Section from '../components/section';
 import data from '../data.json';
 
-function handleContact(ev: MouseEvent<HTMLAnchorElement>) {
+function handleContact(ev: React.MouseEvent<HTMLAnchorElement>) {
   ev.preventDefault();
   window.location.href = Buffer.from('bWFpbHRvOmVpa2Vmb2tlbkBnbWFpbC5jb20=', 'base64').toString();
 }
 
-const About: FC = () => (
+const About: React.FC = () => (
   <Section id="about">
     <Box mb={6}>
       <Avatar
+        src="/images/profile.jpg"
+        alt="Eike Foken"
         sx={{
           display: 'none',
 
@@ -30,9 +30,7 @@ const About: FC = () => (
             marginLeft: '25%',
           },
         }}
-      >
-        <Image fill src="/images/profile.jpg" alt="Eike Foken" />
-      </Avatar>
+      />
       <Typography variant="h1" color="textSecondary">
         Eike Foken
       </Typography>

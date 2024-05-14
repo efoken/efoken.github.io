@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
-import { FC } from 'react';
-import Section from '../components/Section';
-import SectionHeading from '../components/SectionHeading';
+import Section from '../components/section';
+import SectionHeading from '../components/section-heading';
 import data from '../data.json';
 
-const Education: FC = () => (
+const Education: React.FC = () => (
   <Section id="education">
     <SectionHeading>Education</SectionHeading>
     {data.education.map((education, index) => (
@@ -16,7 +15,7 @@ const Education: FC = () => (
         gap={1}
         mt={index === data.education.length - 1 ? 6 : undefined}
         my={index === data.education.length - 1 ? undefined : 6}
-        sx={{ pageBreakBefore: 'void', pageBreakInside: 'avoid' }}
+        sx={{ pageBreakInside: 'avoid' }}
       >
         <Box mr="auto">
           <Typography variant="h3" color="textSecondary">

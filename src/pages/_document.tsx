@@ -2,11 +2,10 @@ import createEmotionServer from '@emotion/server/create-instance';
 import { DateTime } from 'luxon';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
-import { ReactNode } from 'react';
 import data from '../data.json';
 import createEmotionCache from '../utils/createEmotionCache';
 
-export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
+export default class extends Document<{ emotionStyleTags: React.ReactNode[] }> {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
@@ -27,7 +26,7 @@ export default class extends Document<{ emotionStyleTags: ReactNode[] }> {
     // This is important. It prevents Emotion to render invalid HTML.
     // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
     const emotionStyles = extractCriticalToChunks(initialProps.html);
-    const emotionStyleTags = emotionStyles.styles.map<ReactNode>((style) => (
+    const emotionStyleTags = emotionStyles.styles.map<React.ReactNode>((style) => (
       <style
         data-emotion={`${style.key} ${style.ids.join(' ')}`}
         key={style.key}

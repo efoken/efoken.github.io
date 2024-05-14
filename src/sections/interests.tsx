@@ -1,10 +1,9 @@
 import { Typography } from '@mui/material';
-import { FC } from 'react';
-import Section from '../components/Section';
-import SectionHeading from '../components/SectionHeading';
+import Section from '../components/section';
+import SectionHeading from '../components/section-heading';
 
-const Interests: FC = () => (
-  <Section id="interests">
+const Interests: React.FC = () => (
+  <Section id="interests" sx={{ pageBreakInside: 'avoid' }}>
     <SectionHeading>Interests</SectionHeading>
     <Typography gutterBottom>
       In my free time, I really like to go to concerts, festivals and exhibitions, travel and

@@ -1,13 +1,17 @@
 {
   "root": true,
-  "extends": ["airbnb-typescript-prettier", "plugin:@next/next/recommended"],
+  "extends": ["airbnb", "airbnb-typescript", "prettier", "plugin:@next/next/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+  },
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/function-component-definition": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-unstable-nested-components": "off",
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off"
-  }
+    "react/require-default-props": "off",
+  },
 }

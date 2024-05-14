@@ -1,15 +1,15 @@
-import { Avatar, Box, Button, Divider, Drawer, Link } from '@mui/material';
+import { Avatar, Box, Button, Drawer, Link } from '@mui/material';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { MouseEvent } from 'react';
 import Scrollspy from 'react-scrollspy';
 import About from '../sections/about';
 import Education from '../sections/education';
 import Experience from '../sections/experience';
 import Interests from '../sections/interests';
+import Projects from '../sections/projects';
 import Skills from '../sections/skills';
 
-function handleScrollToAnchor(ev: MouseEvent<HTMLElement>) {
+function handleScrollToAnchor(ev: React.MouseEvent<HTMLElement>) {
   const href = ev.currentTarget.getAttribute('href');
   const target = href?.startsWith('#') ? document.querySelector(href) : null;
 
@@ -60,6 +60,9 @@ const Home: NextPage = () => (
             <Button href="#education" onClick={handleScrollToAnchor}>
               Education
             </Button>
+            <Button href="#projects" onClick={handleScrollToAnchor}>
+              Projects
+            </Button>
             <Button href="#skills" onClick={handleScrollToAnchor}>
               Skills
             </Button>
@@ -72,13 +75,10 @@ const Home: NextPage = () => (
     </Box>
     <main>
       <About />
-      <Divider />
       <Experience />
-      <Divider sx={{ pageBreakAfter: 'always' }} />
       <Education />
-      <Divider />
+      <Projects />
       <Skills />
-      <Divider />
       <Interests />
     </main>
   </Box>
